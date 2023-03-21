@@ -29,6 +29,8 @@ public class DeveloperData implements ApplicationRunner {
   SkateGroupRepository skateGroupRepository;
   @Autowired
   EventParticipantService eventParticipantService;
+  @Autowired
+  ClubRepository clubRepo;
 
   @Override
   public void run(ApplicationArguments args) throws Exception {
@@ -88,7 +90,6 @@ public class DeveloperData implements ApplicationRunner {
     Club club16 = new Club("Tårnby Skøjteklub", "", loc1, CompetitionType.EAST);
     Club club17 = new Club("Vojens Skøjteklub", "", loc16, CompetitionType.WEST);
     Club club18 = new Club("Ørestad Skøjteklub", "", loc17, CompetitionType.EAST);
-
 
     clubRepository.save(club1);
     clubRepository.save(club2);
@@ -200,8 +201,8 @@ public class DeveloperData implements ApplicationRunner {
     epg5.setSkateGroup(funBubbles4);
     eventParticipantGroupRepository.save(epg5);
 
-
   }
+
 
 
 }
