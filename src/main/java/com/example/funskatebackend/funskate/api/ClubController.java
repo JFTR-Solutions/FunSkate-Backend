@@ -3,6 +3,7 @@ package com.example.funskatebackend.funskate.api;
 import com.example.funskatebackend.funskate.dto.club.ClubResponse;
 import com.example.funskatebackend.funskate.entity.Club;
 import com.example.funskatebackend.funskate.service.ClubService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
