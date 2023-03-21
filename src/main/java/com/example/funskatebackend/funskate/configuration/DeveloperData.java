@@ -32,16 +32,6 @@ public class DeveloperData implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Athlete athlete1 = new Athlete("John", "Doe", LocalDate.of(1995, 5, 12), 1500, 1234);
-        Athlete athlete2 = new Athlete("Jane", "Smith", LocalDate.of(1998, 9, 3), 1800, 5678);
-        Athlete athlete3 = new Athlete("Bob", "Johnson", LocalDate.of(1990, 2, 22), 1200, 9012);
-
-        athleteRepository.save(athlete1);
-        athleteRepository.save(athlete2);
-        athleteRepository.save(athlete3);
-
-        Club club1 = new Club(1, "Team Alpha", "https://example.com/teamalpha.png");
-        Club club2 = new Club(2, "Team Beta", "https://example.com/teambeta.png");
         Location loc1 = new Location("Main Street", "New York City", "10001", "Empire State Building");
         Location loc2 = new Location("Broadway", "Los Angeles", "90028", "Hollywood Walk of Fame");
         Location loc3 = new Location("Rue du Faubourg Saint-Honoré", "Paris", "75008", "Champs-Élysées");
@@ -52,8 +42,26 @@ public class DeveloperData implements ApplicationRunner {
         locationRepository.save(loc3);
         locationRepository.save(loc4);
 
+        Club club1 = new Club( "Team Alpha", "https://example.com/teamalpha.png", loc1);
+        Club club2 = new Club( "Team Beta", "https://example.com/teambeta.png",loc2);
         clubRepository.save(club1);
         clubRepository.save(club2);
+
+        Athlete athlete1 = new Athlete("John", "Doe", LocalDate.of(1995, 5, 12), 1500, 1234);
+        Athlete athlete2 = new Athlete("Jane", "Smith", LocalDate.of(1998, 9, 3), 1800, 5678);
+        Athlete athlete3 = new Athlete("Bob", "Johnson", LocalDate.of(1990, 2, 22), 1200, 9012);
+
+
+
+        athlete1.setClub(club1);
+        athlete2.setClub(club1);
+        athlete3.setClub(club2);
+
+
+        athleteRepository.save(athlete1);
+        athleteRepository.save(athlete2);
+        athleteRepository.save(athlete3);
+
 
         Competition competition1 = new Competition(1, LocalDate.of(2023, 7, 1), LocalDate.of(2023, 7, 10), LocalDate.of(2023, 6, 15));
 

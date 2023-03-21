@@ -7,10 +7,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "club")
 public class Club {
@@ -25,9 +26,21 @@ public class Club {
     @Column(name = "logo", nullable = false, length = 50)
     private String logo;
 
-    //TODO
+    @OneToMany(mappedBy = "club", cascade = CascadeType.ALL)
+    private List<Athlete> athletes;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "location_id")
+    private Location location;
+
+    public Club(String name, String logo, Location location) {
+        this.name = name;
+        this.logo = logo;
+        this.location = location;
+    }
+//TODO
     //eawe_id
-    //loca_id
+
 
 
 }

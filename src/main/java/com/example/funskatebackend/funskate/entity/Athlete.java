@@ -33,8 +33,9 @@ public class Athlete {
     @Column(name = "competition_number")
     private int competitionNumber;
 
-    //TODO ClubID
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "club_id")
+    private Club club;
 
     public Athlete(String firstName, String lastName, LocalDate birthdate, int clubMark, int competitionNumber) {
         this.firstName = firstName;
