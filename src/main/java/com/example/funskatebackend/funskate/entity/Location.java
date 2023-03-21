@@ -30,4 +30,10 @@ public class Location {
   @Column(name = "name", nullable = false)
   private String name;
 
+  public Location(String streetName, String city, String zipCode, String name) {
+    this.streetName = streetName;
+    this.city = city;
+    this.zipCode = zipCode;
+    this.name = name;
+  }
 }

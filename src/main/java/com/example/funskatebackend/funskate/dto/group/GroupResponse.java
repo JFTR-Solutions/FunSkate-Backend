@@ -1,6 +1,6 @@
 package com.example.funskatebackend.funskate.dto.group;
 
-import com.example.funskatebackend.funskate.entity.Group;
+import com.example.funskatebackend.funskate.entity.SkateGroup;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,7 +16,7 @@ public class GroupResponse {
     private int minAge;
     private int maxAge;
 
-    public GroupResponse(Group g) {
+    public GroupResponse(SkateGroup g) {
         this.id = g.getId();
         this.firstName = g.getName();
         this.clubMark = g.getClubMark();

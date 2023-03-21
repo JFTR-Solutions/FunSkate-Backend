@@ -7,7 +7,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class EventParticipantGroups {
+public class EventParticipantGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,6 +18,6 @@ public class EventParticipantGroups {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "group_id")
-    private Group group;
+    private SkateGroup skateGroup;
 
 }
