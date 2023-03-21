@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class AthleteService {
 
-AthleteRepository athleteRepository;
+    AthleteRepository athleteRepository;
 
     public AthleteService(AthleteRepository athleteRepository) {
         this.athleteRepository = athleteRepository;
@@ -32,7 +32,7 @@ AthleteRepository athleteRepository;
         return new AthleteResponse(newAthlete);
     }
 
-    public List<AthleteResponse> getAthletes(){
+    public List<AthleteResponse> getAthletes() {
         List<Athlete> athletes = athleteRepository.findAll();
 
         return athletes.stream().map(AthleteResponse::new).toList();
