@@ -9,8 +9,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "group")
-public class Group {
+@Table(name = "skate_group")
+public class SkateGroup {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,8 +28,7 @@ public class Group {
     @Column(name = "max_age", nullable = false)
     private int maxAge;
 
-    public Group(int id, String name, int clubMark, int minAge, int maxAge) {
-        this.id = id;
+    public SkateGroup(String name, int clubMark, int minAge, int maxAge) {
         this.name = name;
         this.clubMark = clubMark;
         this.minAge = minAge;
