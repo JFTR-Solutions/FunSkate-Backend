@@ -28,7 +28,7 @@ public class Athlete {
     private LocalDate birthdate;
 
     @Column(name = "clubmark")
-    private LocalDate clubMark;
+    private int clubMark;
 
     @Column(name = "competition_number")
     private int competitionNumber;
@@ -36,7 +36,7 @@ public class Athlete {
     //TODO ClubID
 
 
-    public Athlete(String firstName, String lastName, LocalDate birthdate, LocalDate clubMark, int competitionNumber) {
+    public Athlete(String firstName, String lastName, LocalDate birthdate, int clubMark, int competitionNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthdate = birthdate;

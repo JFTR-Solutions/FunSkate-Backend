@@ -15,7 +15,7 @@ public class AthleteResponse {
     String firstName;
     String lastName;
     LocalDate birthdate;
-    LocalDate clubMark;
+    int clubMark;
     int competitionNumber;
 
     public AthleteResponse(Athlete a) {

@@ -16,7 +16,7 @@ public class AthleteRequest {
     private String firstName;
     private String lastName;
     private LocalDate birthdate;
-    private LocalDate clubMark;
+    private int clubMark;
     private int competitionNumber;
 
     public static Athlete getAthleteEntity(AthleteRequest a){

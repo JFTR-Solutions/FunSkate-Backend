@@ -35,7 +35,7 @@ AthleteRepository athleteRepository;
     public List<AthleteResponse> getAthletes(){
         List<Athlete> athletes = athleteRepository.findAll();
 
-        return athletes.stream().map(a -> new AthleteResponse(a)).toList();
+        return athletes.stream().map(AthleteResponse::new).toList();
 
     }
 
