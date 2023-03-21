@@ -2,6 +2,8 @@ package com.example.funskatebackend.funskate.dto.competition;
 
 
 import com.example.funskatebackend.funskate.entity.Competition;
+import com.example.funskatebackend.funskate.entity.CompetitionType;
+import com.example.funskatebackend.funskate.entity.Location;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,9 +18,11 @@ public class CompetitionRequest {
   private LocalDate startDate;
   private LocalDate endDate;
   private LocalDate deadline;
+  private CompetitionType competitionType;
+  private Location location;
 
   public static Competition getCompetitionEntity(CompetitionRequest c) {
-    return new Competition(c.id, c.startDate,c.endDate,c.deadline);
+    return new Competition(c.startDate,c.endDate,c.deadline, c.competitionType, c.location);
   }
 
   public CompetitionRequest(Competition c) {
@@ -26,5 +30,7 @@ public class CompetitionRequest {
     this.startDate = c.getStartDate();
     this.endDate = c.getEndDate();
     this.deadline = c.getDeadline();
+    this.competitionType = c.getCompetitionType();
+    this.location = c.getLocation();
   }
 }

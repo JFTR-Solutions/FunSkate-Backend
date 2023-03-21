@@ -26,10 +26,19 @@ public class Competition {
   @Column(name = "deadline", nullable = false)
   private LocalDate deadline;
 
-  //Todo
-  //eawe_id
+  @Enumerated(EnumType.STRING)
+  @Column(name = "comp_type")
+  private CompetitionType competitionType;
 
-  //Todo
-  //loca_id
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "loca_id")
+  private Location location;
 
+  public Competition(LocalDate startDate, LocalDate endDate, LocalDate deadline, CompetitionType competitionType, Location location) {
+    this.startDate = startDate;
+    this.endDate = endDate;
+    this.deadline = deadline;
+    this.competitionType = competitionType;
+    this.location = location;
+  }
 }
