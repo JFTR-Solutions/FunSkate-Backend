@@ -1,10 +1,7 @@
 package com.example.funskatebackend.funskate.service;
 
-import com.example.funskatebackend.funskate.dto.competition.CompetitionRequest;
-import com.example.funskatebackend.funskate.dto.competition.CompetitionResponse;
 import com.example.funskatebackend.funskate.dto.location.LocationRequest;
 import com.example.funskatebackend.funskate.dto.location.LocationResponse;
-import com.example.funskatebackend.funskate.entity.Competition;
 import com.example.funskatebackend.funskate.entity.Location;
 import com.example.funskatebackend.funskate.repository.LocationRepository;
 import org.springframework.stereotype.Service;
@@ -34,5 +31,6 @@ public class LocationService {
   }
 
   public void deleteLocationById(int id) {
+    locationRepository.deleteById(id);
   }
 }

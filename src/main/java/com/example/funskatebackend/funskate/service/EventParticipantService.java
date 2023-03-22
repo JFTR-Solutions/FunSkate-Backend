@@ -1,6 +1,5 @@
 package com.example.funskatebackend.funskate.service;
 
-import com.example.funskatebackend.funskate.dto.event.EventParticipantRequest;
 import com.example.funskatebackend.funskate.entity.Athlete;
 import com.example.funskatebackend.funskate.entity.Competition;
 import com.example.funskatebackend.funskate.entity.EventParticipant;

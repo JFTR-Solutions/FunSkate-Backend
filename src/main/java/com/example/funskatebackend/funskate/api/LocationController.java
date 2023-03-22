@@ -1,7 +1,5 @@
 package com.example.funskatebackend.funskate.api;
 
-import com.example.funskatebackend.funskate.dto.competition.CompetitionRequest;
-import com.example.funskatebackend.funskate.dto.competition.CompetitionResponse;
 import com.example.funskatebackend.funskate.dto.location.LocationRequest;
 import com.example.funskatebackend.funskate.dto.location.LocationResponse;
 import com.example.funskatebackend.funskate.service.LocationService;

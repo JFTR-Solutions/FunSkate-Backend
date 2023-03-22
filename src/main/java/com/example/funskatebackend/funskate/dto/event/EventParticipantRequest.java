@@ -1,7 +1,5 @@
 package com.example.funskatebackend.funskate.dto.event;
 
-
-import com.example.funskatebackend.funskate.entity.EventParticipant;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

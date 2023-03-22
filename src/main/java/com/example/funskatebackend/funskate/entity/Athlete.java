@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
@@ -36,6 +37,9 @@ public class Athlete {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "club_id")
     private Club club;
+
+    @OneToMany(mappedBy = "athlete", cascade = CascadeType.ALL)
+    private List<EventParticipant> eventParticipants;
 
     public Athlete(String firstName, String lastName, LocalDate birthdate, int clubMark, int competitionNumber) {
         this.firstName = firstName;

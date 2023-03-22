@@ -6,11 +6,9 @@ import com.example.funskatebackend.funskate.dto.club.ClubResponse;
 import com.example.funskatebackend.funskate.entity.Club;
 import com.example.funskatebackend.funskate.entity.Location;
 import com.example.funskatebackend.funskate.repository.ClubRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class ClubService {

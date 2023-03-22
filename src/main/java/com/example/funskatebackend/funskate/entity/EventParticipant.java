@@ -1,6 +1,5 @@
 package com.example.funskatebackend.funskate.entity;
 
-import com.example.funskatebackend.funskate.dto.event.EventParticipantRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
