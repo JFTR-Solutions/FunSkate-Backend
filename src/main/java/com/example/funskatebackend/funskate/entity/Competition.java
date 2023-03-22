@@ -29,7 +29,7 @@ public class Competition {
   @Column(name = "comp_type")
   private CompetitionType competitionType;
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "location_id")
   private Location location;
 
