@@ -62,4 +62,8 @@ public class AthleteService {
         athleteRepository.save(athlete);
         return new AthleteResponse(athlete);
     }
+
+    public void deleteAthlete(int id) {
+        athleteRepository.deleteById(id);
+    }
 }

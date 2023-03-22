@@ -40,4 +40,9 @@ public class AthleteController {
         return athleteService.updateAthlete(id, athleteRequest);
     }
 
+    @DeleteMapping(path = "/{id}")
+    void deleteAthlete(@PathVariable int id) {
+        athleteService.deleteAthlete(id);
+    }
+
 }
