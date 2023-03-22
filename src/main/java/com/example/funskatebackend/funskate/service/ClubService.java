@@ -17,12 +17,14 @@ public class ClubService {
     public ClubService(ClubRepository clubRepository) {
         this.clubRepository = clubRepository;
     }
-
+/*
     public ClubResponse addClub(ClubRequest clubRequest, Location location){
         Club newClub = ClubRequest.getClubEntity(clubRequest, location);
         newClub = clubRepository.save(newClub);
         return new ClubResponse(newClub);
     }
+
+ */
 
     public List<ClubResponse> getClubs(){
         List<Club> clubs = clubRepository.findAll();

@@ -22,6 +22,10 @@ public class CompetitionController {
   List<CompetitionResponse> getCompetitions() {
     return competitionService.getAllCompetitions();
   }
+  @GetMapping("/{comp_type}")
+  List<CompetitionResponse> getCompetitionsByCompType(@PathVariable String comp_type) {
+    return competitionService.getCompetitionsByCompType(comp_type);
+  }
 
   @PostMapping
   CompetitionResponse addCompetition(@RequestBody CompetitionRequest body) {

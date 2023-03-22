@@ -3,6 +3,7 @@ package com.example.funskatebackend.funskate.service;
 import com.example.funskatebackend.funskate.dto.competition.CompetitionRequest;
 import com.example.funskatebackend.funskate.dto.competition.CompetitionResponse;
 import com.example.funskatebackend.funskate.entity.Competition;
+import com.example.funskatebackend.funskate.entity.CompetitionType;
 import com.example.funskatebackend.funskate.repository.CompetitionRepository;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,7 @@ public class CompetitionService {
   public List<CompetitionResponse> getAllCompetitions() {
     List<Competition> competitions = competitionRepository.findAll();
 
-    return competitions.stream().map(c -> new CompetitionResponse()).toList();
+    return competitions.stream().map(CompetitionResponse::new).toList();
   }
 
 
@@ -33,5 +34,10 @@ public class CompetitionService {
 
   public void deleteCompetitionById(int id) {
     competitionRepository.deleteById(id);
+  }
+
+  public List<CompetitionResponse> getCompetitionsByCompType(String compType) {
+    List<Competition> competitions = competitionRepository.findAllByCompetitionType(CompetitionType.valueOf(compType));
+    return competitions.stream().map(CompetitionResponse::new).toList();
   }
 }

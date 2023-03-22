@@ -16,7 +16,7 @@ import java.util.List;
 public class Club {
 
     @Id
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "name", nullable = false, length = 50)
@@ -36,18 +36,16 @@ public class Club {
     @Column(name = "east_west")
     private CompetitionType eastWest;
 
+  public Club(String name, String logo, Location location) {
+    this.name = name;
+    this.logo = logo;
+    this.location = location;
+  }
 
-
-    public Club(String name, String logo, Location location) {
-        this.name = name;
-        this.logo = logo;
-        this.location = location;
-    }
-
-    public Club(String name, String logo, Location location, CompetitionType eastWest) {
-        this.name = name;
-        this.logo = logo;
-        this.location = location;
-        this.eastWest = eastWest;
-    }
+  public Club(String name, String logo, Location location, CompetitionType eastWest) {
+    this.name = name;
+    this.logo = logo;
+    this.location = location;
+    this.eastWest = eastWest;
+  }
 }
