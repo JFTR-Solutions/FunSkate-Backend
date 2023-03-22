@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Setter
 @Getter
@@ -31,8 +32,11 @@ public class Competition {
   private CompetitionType competitionType;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "loca_id")
+  @JoinColumn(name = "location_id")
   private Location location;
+
+  @OneToMany(mappedBy = "competition", cascade = CascadeType.ALL)
+  private List<Competition> competitions;
 
   public Competition(LocalDate startDate, LocalDate endDate, LocalDate deadline, CompetitionType competitionType, Location location) {
     this.startDate = startDate;
