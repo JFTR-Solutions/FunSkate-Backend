@@ -1,12 +1,6 @@
 package com.example.funskatebackend.funskate.dto.location;
 
-import com.example.funskatebackend.funskate.dto.competition.CompetitionRequest;
-import com.example.funskatebackend.funskate.entity.Competition;
 import com.example.funskatebackend.funskate.entity.Location;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

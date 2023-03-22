@@ -1,7 +1,6 @@
 package com.example.funskatebackend.funskate.dto.athlete;
 
 import com.example.funskatebackend.funskate.entity.Athlete;
-import jakarta.persistence.Column;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
