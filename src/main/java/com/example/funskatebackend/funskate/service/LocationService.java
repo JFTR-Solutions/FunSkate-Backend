@@ -7,6 +7,7 @@ import com.example.funskatebackend.funskate.repository.LocationRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class LocationService {
@@ -20,8 +21,10 @@ public class LocationService {
   public List<LocationResponse> getAllLocations() {
     List<Location> locations = locationRepository.findAll();
 
-    return locations.stream().map(l -> new LocationResponse()).toList();
+    return locations.stream().map(LocationResponse::new).toList();
   }
+
+
 
   public LocationResponse addLocation(LocationRequest locationRequest) {
     Location newLocation = LocationRequest.getLocationEntity(locationRequest);
@@ -32,5 +35,9 @@ public class LocationService {
 
   public void deleteLocationById(int id) {
     locationRepository.deleteById(id);
+  }
+
+  public Optional<Location> getLocationById(int id) {
+    return locationRepository.findById(id);
   }
 }

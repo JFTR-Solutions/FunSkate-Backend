@@ -9,6 +9,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Configuration
 public class DeveloperData implements ApplicationRunner {
@@ -32,7 +33,14 @@ public class DeveloperData implements ApplicationRunner {
 
   @Override
   public void run(ApplicationArguments args) throws Exception {
+    createLocations();
+    createAllClubs(locationRepository.findAll());
+    createAthletes(clubRepository.findAll());
+    createCompetitions();
+    createElementGroups();
+  }
 
+  public void createLocations() {
     Location loc1 = new Location("Røllikevej 1", "Kastrup", "2770", "Kastrup Skøjtehal");
     Location loc2 = new Location("Rødovre Parkvej 425", "Rødovre", "2610", "Rødovre Arena");
     Location loc3 = new Location("Willy Brandts Vej 31", "Aalborg", "9220", "Gigantium");
@@ -68,26 +76,28 @@ public class DeveloperData implements ApplicationRunner {
     locationRepository.save(loc15);
     locationRepository.save(loc16);
     locationRepository.save(loc17);
+  }
 
+  public void createAllClubs(List<Location> locations) {
 
-    Club club1 = new Club("Aalborg Skøjteløberforening", "", loc3, CompetitionType.WEST);
-    Club club2 = new Club("Aarhus Skøjteklub", "", loc4, CompetitionType.WEST);
-    Club club3 = new Club("Esbjerg Skøjteklub", "", loc5, CompetitionType.WEST);
-    Club club4 = new Club("Frederikshavn Skøjteforening", "", loc6, CompetitionType.WEST);
-    Club club5 = new Club("Gentofte Kunstskøjteløber Forening", "", loc7, CompetitionType.EAST);
-    Club club6 = new Club("Gladsaxe Skøjteløber-Forening", "", loc8, CompetitionType.EAST);
-    Club club7 = new Club("Herlev Idrætsforenings Kunstskøjte Afdeling", "", loc9, CompetitionType.EAST);
-    Club club8 = new Club("Herning Skøjteløber Forening", "", loc10, CompetitionType.WEST);
-    Club club9 = new Club("Hvidovre Skøjte Klub", "", loc11, CompetitionType.EAST);
-    Club club10 = new Club("Hørsholm Kunstskøjteløber Forening", "", loc12, CompetitionType.EAST);
-    Club club11 = new Club("Odense Skøjteklub", "", loc13, CompetitionType.WEST);
-    Club club12 = new Club("Rødovre Skøjte- og Ishockey Klub", "", loc2, CompetitionType.EAST);
-    Club club13 = new Club("Silkeborg Skøjteløberforening", "", loc14, CompetitionType.WEST);
-    Club club14 = new Club("Skøjteklub København", "", loc15, CompetitionType.EAST);
-    Club club15 = new Club("Skøjte og Sport Forening Nord", "", loc6, CompetitionType.WEST);
-    Club club16 = new Club("Tårnby Skøjteklub", "", loc1, CompetitionType.EAST);
-    Club club17 = new Club("Vojens Skøjteklub", "", loc16, CompetitionType.WEST);
-    Club club18 = new Club("Ørestad Skøjteklub", "", loc17, CompetitionType.EAST);
+    Club club1 = new Club("Aalborg Skøjteløberforening", "", locations.get(2), CompetitionType.WEST);
+    Club club2 = new Club("Aarhus Skøjteklub", "", locations.get(3), CompetitionType.WEST);
+    Club club3 = new Club("Esbjerg Skøjteklub", "", locations.get(4), CompetitionType.WEST);
+    Club club4 = new Club("Frederikshavn Skøjteforening", "", locations.get(5), CompetitionType.WEST);
+    Club club5 = new Club("Gentofte Kunstskøjteløber Forening", "", locations.get(6), CompetitionType.EAST);
+    Club club6 = new Club("Gladsaxe Skøjteløber-Forening", "", locations.get(7), CompetitionType.EAST);
+    Club club7 = new Club("Herlev Idrætsforenings Kunstskøjte Afdeling", "", locations.get(8), CompetitionType.EAST);
+    Club club8 = new Club("Herning Skøjteløber Forening", "", locations.get(9), CompetitionType.WEST);
+    Club club9 = new Club("Hvidovre Skøjte Klub", "", locations.get(10), CompetitionType.EAST);
+    Club club10 = new Club("Hørsholm Kunstskøjteløber Forening", "", locations.get(11), CompetitionType.EAST);
+    Club club11 = new Club("Odense Skøjteklub", "", locations.get(12), CompetitionType.WEST);
+    Club club12 = new Club("Rødovre Skøjte- og Ishockey Klub", "", locations.get(1), CompetitionType.EAST);
+    Club club13 = new Club("Silkeborg Skøjteløberforening", "", locations.get(13), CompetitionType.WEST);
+    Club club14 = new Club("Skøjteklub København", "", locations.get(14), CompetitionType.EAST);
+    Club club15 = new Club("Skøjte og Sport Forening Nord", "", locations.get(5), CompetitionType.WEST);
+    Club club16 = new Club("Tårnby Skøjteklub", "", locations.get(0), CompetitionType.EAST);
+    Club club17 = new Club("Vojens Skøjteklub", "", locations.get(15), CompetitionType.WEST);
+    Club club18 = new Club("Ørestad Skøjteklub", "", locations.get(16), CompetitionType.EAST);
 
     clubRepository.save(club1);
     clubRepository.save(club2);
@@ -107,27 +117,37 @@ public class DeveloperData implements ApplicationRunner {
     clubRepository.save(club16);
     clubRepository.save(club17);
     clubRepository.save(club18);
+  }
 
+
+  public void createAthletes(List<Club> clubs) {
     Athlete athlete1 = new Athlete("John", "Doe", LocalDate.of(1995, 5, 12), 1500, 1234);
     Athlete athlete2 = new Athlete("Jane", "Smith", LocalDate.of(1998, 9, 3), 1800, 5678);
     Athlete athlete3 = new Athlete("Bob", "Johnson", LocalDate.of(1990, 2, 22), 1200, 9012);
 
 
-    athlete1.setClub(club1);
-    athlete2.setClub(club1);
-    athlete3.setClub(club2);
+    athlete1.setClub(clubs.get(0));
+    athlete2.setClub(clubs.get(0));
+    athlete3.setClub(clubs.get(1));
 
 
     athleteRepository.save(athlete1);
     athleteRepository.save(athlete2);
     athleteRepository.save(athlete3);
+  }
 
+  public void createCompetitions() {
 
     Competition competition1 = new Competition(LocalDate.of(2023, 7, 1),
         LocalDate.of(2023, 7, 10), LocalDate.of(2023, 6, 15),
         CompetitionType.FINALS, locationRepository.getReferenceById(1));
 
     competitionRepository.save(competition1);
+  }
+
+  public void createElementGroups() {
+
+    // FunSkate Elements Groups
 
     // FunBubbles Groups
     SkateGroup funBubbles1 = new SkateGroup("FunBubbles 1", 2, 0, 8);
@@ -152,6 +172,23 @@ public class DeveloperData implements ApplicationRunner {
     SkateGroup funCrystals3 = new SkateGroup("FunCrystals 3", 6, 13, 18);
 
 
+    // FunSkate Free Groups
+    // Bestået DSU klubmærke 4.
+
+    SkateGroup group1 = new SkateGroup("FunSkate Free Tots 1", 4, 0, 8);
+    SkateGroup group2 = new SkateGroup("FunSkate Free Tweens 1", 4, 0, 10);
+    SkateGroup group3 = new SkateGroup("FunSkate Free Teens 1", 4, 11, 12);
+    SkateGroup group4 = new SkateGroup("FunSkate Free Togs 1", 4, 13, 17);
+    SkateGroup group5 = new SkateGroup("FunSkate Free Adults 1", 4, 18, Integer.MAX_VALUE);
+
+    // Bestået DSU klubmærke 5-7
+
+    SkateGroup group6 = new SkateGroup("FunSkate Free Tots 2", 5, 0, 8);
+    SkateGroup group7 = new SkateGroup("FunSkate Free Tweens 2", 5, 0, 10);
+    SkateGroup group8 = new SkateGroup("FunSkate Free Teens 2", 5, 11, 12);
+    SkateGroup group9 = new SkateGroup("FunSkate Free Togs 2", 5, 13, 17);
+    SkateGroup group10 = new SkateGroup("FunSkate Free Adults 2", 5, 18, Integer.MAX_VALUE);
+
     skateGroupRepository.save(funBubbles1);
     skateGroupRepository.save(funBubbles2);
     skateGroupRepository.save(funBubbles3);
@@ -167,40 +204,16 @@ public class DeveloperData implements ApplicationRunner {
     skateGroupRepository.save(funCrystals2);
     skateGroupRepository.save(funCrystals3);
 
-
-    EventParticipant eventParticipant = eventParticipantService.addEventParticipant(athlete1, competition1);
-
-    EventParticipantGroup epg1 = new EventParticipantGroup();
-    epg1.setEventParticipant(eventParticipant);
-    epg1.setSkateGroup(funBubbles1);
-    eventParticipantGroupRepository.save(epg1);
-
-    EventParticipantGroup epg2 = new EventParticipantGroup();
-    epg2.setEventParticipant(eventParticipant);
-    epg2.setSkateGroup(funCubes2);
-    eventParticipantGroupRepository.save(epg2);
-
-    EventParticipant eventParticipant2 = eventParticipantService.addEventParticipant(athlete2, competition1);
-
-    EventParticipantGroup epg3 = new EventParticipantGroup();
-    epg3.setEventParticipant(eventParticipant2);
-    epg3.setSkateGroup(funFlakes3);
-    eventParticipantGroupRepository.save(epg3);
-
-    EventParticipantGroup epg4 = new EventParticipantGroup();
-    epg4.setEventParticipant(eventParticipant2);
-    epg4.setSkateGroup(funCrystals2);
-    eventParticipantGroupRepository.save(epg4);
-
-    EventParticipant eventParticipant3 = eventParticipantService.addEventParticipant(athlete3, competition1);
-
-    EventParticipantGroup epg5 = new EventParticipantGroup();
-    epg5.setEventParticipant(eventParticipant3);
-    epg5.setSkateGroup(funBubbles4);
-    eventParticipantGroupRepository.save(epg5);
+    skateGroupRepository.save(group1);
+    skateGroupRepository.save(group2);
+    skateGroupRepository.save(group3);
+    skateGroupRepository.save(group4);
+    skateGroupRepository.save(group5);
+    skateGroupRepository.save(group6);
+    skateGroupRepository.save(group7);
+    skateGroupRepository.save(group8);
+    skateGroupRepository.save(group9);
+    skateGroupRepository.save(group10);
 
   }
-
-
-
 }

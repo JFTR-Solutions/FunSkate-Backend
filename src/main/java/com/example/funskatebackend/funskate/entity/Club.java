@@ -6,11 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Base64;
 import java.util.List;
 
 @Getter
@@ -41,18 +36,16 @@ public class Club {
     @Column(name = "east_west")
     private CompetitionType eastWest;
 
+  public Club(String name, String logo, Location location) {
+    this.name = name;
+    this.logo = logo;
+    this.location = location;
+  }
 
-
-    public Club(String name, String logo, Location location) {
-        this.name = name;
-        this.logo = logo;
-        this.location = location;
-    }
-
-    public Club(String name, String logo, Location location, CompetitionType eastWest) {
-        this.name = name;
-        this.logo = logo;
-        this.location = location;
-        this.eastWest = eastWest;
-    }
+  public Club(String name, String logo, Location location, CompetitionType eastWest) {
+    this.name = name;
+    this.logo = logo;
+    this.location = location;
+    this.eastWest = eastWest;
+  }
 }
