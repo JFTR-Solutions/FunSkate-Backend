@@ -6,11 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Base64;
 import java.util.List;
 
 @Getter
@@ -27,7 +22,7 @@ public class Club {
     @Column(name = "name", nullable = false, length = 50)
     private String name;
 
-    @Column(name = "logo", nullable = false, length = 16383)
+    @Column(name = "logo", nullable = false)
     private String logo;
 
     @OneToMany(mappedBy = "club", cascade = CascadeType.ALL)
