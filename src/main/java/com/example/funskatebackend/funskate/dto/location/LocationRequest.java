@@ -17,11 +17,10 @@ public class LocationRequest {
   private String name;
 
   public static Location getLocationEntity(LocationRequest l) {
-    return new Location(l.id, l.streetName, l.city, l.zipCode, l.name);
+    return new Location(l.streetName, l.city, l.zipCode, l.name);
   }
 
   public LocationRequest(Location l) {
-    this.id = l.getId();
     this.streetName = l.getStreetName();
     this.city = l.getCity();
     this.zipCode = l.getZipCode();

@@ -125,7 +125,7 @@ public class DeveloperData implements ApplicationRunner {
     athleteRepository.save(athlete3);
 
 
-    Competition competition1 = new Competition(1, LocalDate.of(2023, 7, 1),
+    Competition competition1 = new Competition(LocalDate.of(2023, 7, 1),
         LocalDate.of(2023, 7, 10), LocalDate.of(2023, 6, 15),
         CompetitionType.FINALS, locationRepository.getReferenceById(1));
 
