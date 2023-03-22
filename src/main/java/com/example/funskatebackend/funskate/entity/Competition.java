@@ -36,7 +36,7 @@ public class Competition {
   private Location location;
 
   @OneToMany(mappedBy = "competition", cascade = CascadeType.ALL)
-  private List<Competition> competitions;
+  private List<EventParticipant> eventParticipants;
 
   public Competition(LocalDate startDate, LocalDate endDate, LocalDate deadline, CompetitionType competitionType, Location location) {
     this.startDate = startDate;
