@@ -16,11 +16,11 @@ public class DeveloperData implements ApplicationRunner {
   @Autowired
   AthleteRepository athleteRepository;
   @Autowired
+  LocationRepository locationRepository;
+  @Autowired
   ClubRepository clubRepository;
   @Autowired
   CompetitionRepository competitionRepository;
-  @Autowired
-  LocationRepository locationRepository;
   @Autowired
   EventParticipantRepository eventParticipantRepository;
   @Autowired
@@ -29,8 +29,6 @@ public class DeveloperData implements ApplicationRunner {
   SkateGroupRepository skateGroupRepository;
   @Autowired
   EventParticipantService eventParticipantService;
-  @Autowired
-  ClubRepository clubRepo;
 
   @Override
   public void run(ApplicationArguments args) throws Exception {

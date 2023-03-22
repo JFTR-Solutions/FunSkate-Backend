@@ -6,7 +6,9 @@ import com.example.funskatebackend.funskate.dto.club.ClubResponse;
 import com.example.funskatebackend.funskate.entity.Club;
 import com.example.funskatebackend.funskate.entity.Location;
 import com.example.funskatebackend.funskate.repository.ClubRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -27,6 +29,11 @@ public class ClubService {
     public List<ClubResponse> getClubs(){
         List<Club> clubs = clubRepository.findAll();
          return clubs.stream().map(ClubResponse::new).toList();
+    }
+
+    public ClubResponse getClub(int id){
+        Club club = clubRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Club not found"));
+        return new ClubResponse(club);
     }
 
 

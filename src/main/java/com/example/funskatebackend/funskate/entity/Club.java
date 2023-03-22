@@ -21,13 +21,13 @@ import java.util.List;
 public class Club {
 
     @Id
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "name", nullable = false, length = 50)
     private String name;
 
-    @Column(name = "logo", nullable = false, length = 16383)
+    @Column(name = "logo", nullable = false)
     private String logo;
 
     @OneToMany(mappedBy = "club", cascade = CascadeType.ALL)
