@@ -3,7 +3,9 @@ package com.example.funskatebackend.funskate.service;
 import com.example.funskatebackend.funskate.dto.athlete.AthleteRequest;
 import com.example.funskatebackend.funskate.dto.athlete.AthleteResponse;
 import com.example.funskatebackend.funskate.entity.Athlete;
+import com.example.funskatebackend.funskate.entity.Club;
 import com.example.funskatebackend.funskate.repository.AthleteRepository;
+import com.example.funskatebackend.funskate.repository.ClubRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -14,6 +16,7 @@ import java.util.List;
 public class AthleteService {
 
     AthleteRepository athleteRepository;
+    ClubRepository clubRepository;
 
     public AthleteService(AthleteRepository athleteRepository) {
         this.athleteRepository = athleteRepository;
@@ -39,5 +42,28 @@ public class AthleteService {
 
     }
 
+    public AthleteResponse getAthlete(int id) {
+        Athlete athlete = athleteRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Athlete not found"));
+        return new AthleteResponse(athlete);
+    }
 
+
+    public AthleteResponse updateAthlete(int id, AthleteRequest athleteRequest) {
+        Athlete athlete = athleteRepository.findById(id).orElseThrow(()
+                -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Athlete not found"));
+        athlete.setBirthdate(athleteRequest.getBirthdate());
+        athlete.setFirstName(athleteRequest.getFirstName());
+        athlete.setLastName(athleteRequest.getLastName());
+        athlete.setClubMark(athleteRequest.getClubMark());
+        athlete.setCompetitionNumber(athleteRequest.getCompetitionNumber());
+        Club club = clubRepository.findById(athleteRequest.getClubId()).orElseThrow(()
+                -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Club not found"));
+        athlete.setClub(club);
+        athleteRepository.save(athlete);
+        return new AthleteResponse(athlete);
+    }
+
+    public void deleteAthlete(int id) {
+        athleteRepository.deleteById(id);
+    }
 }

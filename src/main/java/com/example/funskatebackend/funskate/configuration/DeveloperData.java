@@ -17,11 +17,11 @@ public class DeveloperData implements ApplicationRunner {
   @Autowired
   AthleteRepository athleteRepository;
   @Autowired
+  LocationRepository locationRepository;
+  @Autowired
   ClubRepository clubRepository;
   @Autowired
   CompetitionRepository competitionRepository;
-  @Autowired
-  LocationRepository locationRepository;
   @Autowired
   EventParticipantRepository eventParticipantRepository;
   @Autowired

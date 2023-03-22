@@ -17,6 +17,7 @@ public class AthleteRequest {
     private LocalDate birthdate;
     private int clubMark;
     private int competitionNumber;
+    private int clubId;
 
     public static Athlete getAthleteEntity(AthleteRequest a){
         return new Athlete(a.firstName,a.lastName,a.birthdate, a.clubMark, a.competitionNumber);
@@ -28,6 +29,7 @@ public class AthleteRequest {
         this.birthdate = a.getBirthdate();
         this.clubMark = a.getClubMark();
         this.competitionNumber = a.getCompetitionNumber();
+        this.clubId = a.getClub().getId();
     }
 
 }
