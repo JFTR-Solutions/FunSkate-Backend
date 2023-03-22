@@ -6,8 +6,6 @@ import lombok.*;
 @Setter
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Entity
 @Table(name = "location")
 public class Location {

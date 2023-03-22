@@ -9,8 +9,6 @@ import java.util.List;
 @Setter
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Entity
 @Table(name = "competition")
 public class Competition {

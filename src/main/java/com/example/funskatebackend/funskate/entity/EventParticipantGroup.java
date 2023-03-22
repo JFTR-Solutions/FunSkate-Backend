@@ -2,11 +2,13 @@ package com.example.funskatebackend.funskate.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class EventParticipantGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,4 +22,8 @@ public class EventParticipantGroup {
     @JoinColumn(name = "group_id")
     private SkateGroup skateGroup;
 
+    public EventParticipantGroup(EventParticipant eventParticipant, SkateGroup skateGroup) {
+        this.eventParticipant = eventParticipant;
+        this.skateGroup = skateGroup;
+    }
 }

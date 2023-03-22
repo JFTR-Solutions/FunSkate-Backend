@@ -9,7 +9,6 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class EventParticipant {
     @Id
@@ -23,4 +22,9 @@ public class EventParticipant {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "competition_id")
     private Competition competition;
+
+    public EventParticipant(Athlete athlete, Competition competition) {
+        this.athlete = athlete;
+        this.competition = competition;
+    }
 }
