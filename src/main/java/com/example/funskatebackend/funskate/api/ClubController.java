@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/api/club")
+@RequestMapping("clubs")
 public class ClubController {
 
     ClubService clubService;

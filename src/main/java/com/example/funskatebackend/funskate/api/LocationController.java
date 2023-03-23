@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin
-@RequestMapping("api/locations")
+@RequestMapping("locations")
 public class LocationController {
 
   LocationService locationService;

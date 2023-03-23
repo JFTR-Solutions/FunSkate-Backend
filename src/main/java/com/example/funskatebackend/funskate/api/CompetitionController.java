@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("api/competitions")
+@RequestMapping("competitions")
 public class CompetitionController {
 
   CompetitionService competitionService;
