@@ -32,7 +32,7 @@ public class DeveloperData implements ApplicationRunner {
   EventParticipantService eventParticipantService;
 
   @Override
-  public void run(ApplicationArguments args) throws Exception {
+  public void run(ApplicationArguments args) {
     createLocations();
     createAllClubs(locationRepository.findAll());
     createAthletes(clubRepository.findAll());
@@ -46,6 +46,7 @@ public class DeveloperData implements ApplicationRunner {
   public void createLocations() {
     Location loc1 = new Location("Røllikevej 1", "Kastrup", "2770", "Kastrup Skøjtehal");
     Location loc2 = new Location("Rødovre Parkvej 425", "Rødovre", "2610", "Rødovre Arena");
+    /*
     Location loc3 = new Location("Willy Brandts Vej 31", "Aalborg", "9220", "Gigantium");
     Location loc4 = new Location("Gøteborg Allé 3", "Aarhus", "8200", "Aarhus Skøjtehal");
     Location loc5 = new Location("Gl Vardevej 82", "Esbjerg", "6700", "Granly Hockey Arena");
@@ -62,8 +63,10 @@ public class DeveloperData implements ApplicationRunner {
     Location loc16 = new Location("Stadion Parken 7", "Vojens", "6500", "Frøs Arena og Skøjtehal");
     Location loc17 = new Location("Hannemanns Alle 14A+B", "København S", "2300", "Ørestad Skøjtehal");
 
+     */
+
     locationRepository.save(loc1);
-    locationRepository.save(loc2);
+    locationRepository.save(loc2);/*
     locationRepository.save(loc3);
     locationRepository.save(loc4);
     locationRepository.save(loc5);
@@ -79,10 +82,12 @@ public class DeveloperData implements ApplicationRunner {
     locationRepository.save(loc15);
     locationRepository.save(loc16);
     locationRepository.save(loc17);
+
+     */
   }
 
   public void createAllClubs(List<Location> locations) {
-
+/*
     Club club1 = new Club("Aalborg Skøjteløberforening", "", locations.get(2), CompetitionType.WEST);
     Club club2 = new Club("Aarhus Skøjteklub", "", locations.get(3), CompetitionType.WEST);
     Club club3 = new Club("Esbjerg Skøjteklub", "", locations.get(4), CompetitionType.WEST);
@@ -93,15 +98,21 @@ public class DeveloperData implements ApplicationRunner {
     Club club8 = new Club("Herning Skøjteløber Forening", "", locations.get(9), CompetitionType.WEST);
     Club club9 = new Club("Hvidovre Skøjte Klub", "", locations.get(10), CompetitionType.EAST);
     Club club10 = new Club("Hørsholm Kunstskøjteløber Forening", "", locations.get(11), CompetitionType.EAST);
-    Club club11 = new Club("Odense Skøjteklub", "", locations.get(12), CompetitionType.WEST);
+    Club club11 = new Club("Odense Skøjteklub", "", locations.get(12), CompetitionType.WEST);*/
     Club club12 = new Club("Rødovre Skøjte- og Ishockey Klub", "", locations.get(1), CompetitionType.EAST);
+    /*
     Club club13 = new Club("Silkeborg Skøjteløberforening", "", locations.get(13), CompetitionType.WEST);
     Club club14 = new Club("Skøjteklub København", "", locations.get(14), CompetitionType.EAST);
     Club club15 = new Club("Skøjte og Sport Forening Nord", "", locations.get(5), CompetitionType.WEST);
+    */
     Club club16 = new Club("Tårnby Skøjteklub", "", locations.get(0), CompetitionType.EAST);
+
+    /*
     Club club17 = new Club("Vojens Skøjteklub", "", locations.get(15), CompetitionType.WEST);
     Club club18 = new Club("Ørestad Skøjteklub", "", locations.get(16), CompetitionType.EAST);
 
+    */
+/*
     clubRepository.save(club1);
     clubRepository.save(club2);
     clubRepository.save(club3);
@@ -112,14 +123,16 @@ public class DeveloperData implements ApplicationRunner {
     clubRepository.save(club8);
     clubRepository.save(club9);
     clubRepository.save(club10);
-    clubRepository.save(club11);
-    clubRepository.save(club12);
+    clubRepository.save(club11);*/
+    clubRepository.save(club12);/*
     clubRepository.save(club13);
     clubRepository.save(club14);
-    clubRepository.save(club15);
-    clubRepository.save(club16);
+    clubRepository.save(club15);*/
+    clubRepository.save(club16);/*
     clubRepository.save(club17);
     clubRepository.save(club18);
+
+    */
   }
 
 
@@ -152,6 +165,7 @@ public class DeveloperData implements ApplicationRunner {
     SkateGroup funBubbles3 = new SkateGroup("FunBubbles 3", 2, 10, 18);
     SkateGroup funBubbles4 = new SkateGroup("FunBubbles 4", 2, 18, Integer.MAX_VALUE);
 
+    /*
 // FunFlakes Groups
     SkateGroup funFlakes1 = new SkateGroup("FunFlakes 1", 3, 0, 10);
     SkateGroup funFlakes2 = new SkateGroup("FunFlakes 2", 3, 10, 12);
@@ -168,6 +182,8 @@ public class DeveloperData implements ApplicationRunner {
     SkateGroup funCrystals2 = new SkateGroup("FunCrystals 2", 6, 11, 13);
     SkateGroup funCrystals3 = new SkateGroup("FunCrystals 3", 6, 13, 18);
 
+     */
+
 
     // FunSkate Free Groups
     // Bestået DSU klubmærke 4.
@@ -178,6 +194,7 @@ public class DeveloperData implements ApplicationRunner {
     SkateGroup group4 = new SkateGroup("FunSkate Free Togs 1", 4, 13, 17);
     SkateGroup group5 = new SkateGroup("FunSkate Free Adults 1", 4, 18, Integer.MAX_VALUE);
 
+    /*
     // Bestået DSU klubmærke 5-7
 
     SkateGroup group6 = new SkateGroup("FunSkate Free Tots 2", 5, 0, 8);
@@ -186,11 +203,13 @@ public class DeveloperData implements ApplicationRunner {
     SkateGroup group9 = new SkateGroup("FunSkate Free Togs 2", 5, 13, 17);
     SkateGroup group10 = new SkateGroup("FunSkate Free Adults 2", 5, 18, Integer.MAX_VALUE);
 
+     */
+
     skateGroupRepository.save(funBubbles1);
     skateGroupRepository.save(funBubbles2);
     skateGroupRepository.save(funBubbles3);
     skateGroupRepository.save(funBubbles4);
-    skateGroupRepository.save(funFlakes1);
+   /* skateGroupRepository.save(funFlakes1);
     skateGroupRepository.save(funFlakes2);
     skateGroupRepository.save(funFlakes3);
     skateGroupRepository.save(funCubes1);
@@ -201,40 +220,40 @@ public class DeveloperData implements ApplicationRunner {
     skateGroupRepository.save(funCrystals2);
     skateGroupRepository.save(funCrystals3);
 
+    */
+
     skateGroupRepository.save(group1);
     skateGroupRepository.save(group2);
     skateGroupRepository.save(group3);
     skateGroupRepository.save(group4);
     skateGroupRepository.save(group5);
-    skateGroupRepository.save(group6);
+    /*skateGroupRepository.save(group6);
     skateGroupRepository.save(group7);
     skateGroupRepository.save(group8);
     skateGroupRepository.save(group9);
     skateGroupRepository.save(group10);
 
+     */
+
   }
 
   public void attendAthletesToCompetitions(List<Athlete> athletes, List<Competition> competitions) {
     EventParticipant eventParticipant1 = new EventParticipant(athletes.get(0), competitions.get(0));
-    EventParticipant eventParticipant2 = new EventParticipant(athletes.get(0), competitions.get(0));
-    EventParticipant eventParticipant3 = new EventParticipant(athletes.get(1), competitions.get(0));
-    EventParticipant eventParticipant4 = new EventParticipant(athletes.get(1), competitions.get(0));
-    EventParticipant eventParticipant5 = new EventParticipant(athletes.get(2), competitions.get(0));
-    EventParticipant eventParticipant6 = new EventParticipant(athletes.get(2), competitions.get(0));
+    EventParticipant eventParticipant2 = new EventParticipant(athletes.get(1), competitions.get(0));
+    EventParticipant eventParticipant3 = new EventParticipant(athletes.get(2), competitions.get(0));
 
     eventParticipantRepository.save(eventParticipant1);
     eventParticipantRepository.save(eventParticipant2);
     eventParticipantRepository.save(eventParticipant3);
-    eventParticipantRepository.save(eventParticipant4);
-    eventParticipantRepository.save(eventParticipant5);
-    eventParticipantRepository.save(eventParticipant6);
   }
 
   public void sortEventParticipantsIntoGroups(List<SkateGroup> skateGroups, List<EventParticipant> eventParticipants) {
-    EventParticipantGroup eventParticipantGroup1 = new EventParticipantGroup(eventParticipants.get(1), skateGroups.get(1));
-    EventParticipantGroup eventParticipantGroup2 = new EventParticipantGroup(eventParticipants.get(0), skateGroups.get(3));
+    EventParticipantGroup eventParticipantGroup1 = new EventParticipantGroup(eventParticipants.get(0), skateGroups.get(5),skateGroups.get(1), GroupType.SOLO);
+    EventParticipantGroup eventParticipantGroup2 = new EventParticipantGroup(eventParticipants.get(1), skateGroups.get(3),null, GroupType.ELEMENT);
+    EventParticipantGroup eventParticipantGroup3 = new EventParticipantGroup(eventParticipants.get(2), skateGroups.get(7),skateGroups.get(6), GroupType.DANCE);
     eventParticipantGroupRepository.save(eventParticipantGroup1);
     eventParticipantGroupRepository.save(eventParticipantGroup2);
+    eventParticipantGroupRepository.save(eventParticipantGroup3);
   }
 
 }
