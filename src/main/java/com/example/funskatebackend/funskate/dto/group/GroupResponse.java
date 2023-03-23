@@ -11,14 +11,14 @@ import lombok.Setter;
 public class GroupResponse {
 
     private int id;
-    private String firstName;
+    private String name;
     private int clubMark;
     private int minAge;
     private int maxAge;
 
     public GroupResponse(SkateGroup g) {
         this.id = g.getId();
-        this.firstName = g.getName();
+        this.name = g.getName();
         this.clubMark = g.getClubMark();
         this.minAge = g.getMinAge();
         this.maxAge = g.getMaxAge();

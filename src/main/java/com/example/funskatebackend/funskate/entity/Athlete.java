@@ -1,5 +1,8 @@
 package com.example.funskatebackend.funskate.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,6 +16,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @Table(name = "athlete")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Athlete {
 
     @Id
@@ -36,16 +40,19 @@ public class Athlete {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "club_id")
+    @JsonManagedReference
     private Club club;
 
     @OneToMany(mappedBy = "athlete", cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<EventParticipant> eventParticipants;
 
-    public Athlete(String firstName, String lastName, LocalDate birthdate, int clubMark, int competitionNumber) {
+    public Athlete(String firstName, String lastName, LocalDate birthdate, int clubMark, int competitionNumber, Club club) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthdate = birthdate;
         this.clubMark = clubMark;
         this.competitionNumber = competitionNumber;
+        this.club = club;
     }
 }

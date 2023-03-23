@@ -1,5 +1,6 @@
 package com.example.funskatebackend.funskate.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,6 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "location")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Location {
 
   @Id

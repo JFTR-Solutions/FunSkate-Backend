@@ -3,6 +3,7 @@ package com.example.funskatebackend.funskate.api;
 import com.example.funskatebackend.funskate.dto.athlete.AthleteRequest;
 import com.example.funskatebackend.funskate.dto.athlete.AthleteResponse;
 import com.example.funskatebackend.funskate.service.AthleteService;
+import com.example.funskatebackend.funskate.service.ClubService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,9 +16,11 @@ public class AthleteController {
 
     //Todo delete this comment
     AthleteService athleteService;
+    ClubService clubService;
 
-    public AthleteController(AthleteService athleteService) {
+    public AthleteController(AthleteService athleteService, ClubService clubService) {
         this.athleteService = athleteService;
+        this.clubService = clubService;
     }
 
     @GetMapping

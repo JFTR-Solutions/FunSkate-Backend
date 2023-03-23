@@ -9,7 +9,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class GroupRequest {
-
     private String name;
     private int clubMark;
     private int minAge;

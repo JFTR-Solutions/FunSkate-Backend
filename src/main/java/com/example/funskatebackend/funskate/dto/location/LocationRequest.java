@@ -9,8 +9,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class LocationRequest {
-
-  private int id;
   private String streetName;
   private String city;
   private String zipCode;
