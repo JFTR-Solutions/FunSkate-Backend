@@ -1,6 +1,7 @@
 package com.example.funskatebackend.funskate.entity;
 
-public enum FreeType {
+public enum GroupType {
   SOLO,
-  DANCE
+  DANCE,
+  ELEMENT
 }

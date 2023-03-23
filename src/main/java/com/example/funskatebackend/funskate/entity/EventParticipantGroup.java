@@ -14,21 +14,30 @@ import lombok.Setter;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class EventParticipantGroup {
 
-  @EmbeddedId
-  private MyKeyEventParticipantGroup id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private int id;
 
-  @MapsId("eventParticipantId")
   @ManyToOne
   @JoinColumn(name = "event_participant_id")
   private EventParticipant eventParticipant;
 
   @ManyToOne
-  @JoinColumn(name = "skate_group_id", insertable = false, updatable = false)
-  private SkateGroup skateGroup;
+  @JoinColumn(name = "free_skate_group_id")
+  private SkateGroup freeSkateGroup;
 
-  public EventParticipantGroup(EventParticipant eventParticipant, SkateGroup skateGroup) {
-    this.id = new MyKeyEventParticipantGroup(eventParticipant.getId(), skateGroup.getId());
+  @ManyToOne
+  @JoinColumn(name = "element_skate_group_id")
+  private SkateGroup elementSkateGroup;
+
+  @Enumerated(EnumType.STRING)
+  @Column(name = "free_type")
+  private GroupType groupType;
+
+  public EventParticipantGroup(EventParticipant eventParticipant,SkateGroup elementSkateGroup, SkateGroup freeSkateGroup, GroupType groupType) {
     this.eventParticipant = eventParticipant;
-    this.skateGroup = skateGroup;
+    this.elementSkateGroup = elementSkateGroup;
+    this.freeSkateGroup = freeSkateGroup;
+    this.groupType = groupType;
   }
 }

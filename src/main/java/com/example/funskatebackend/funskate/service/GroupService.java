@@ -1,6 +1,6 @@
 package com.example.funskatebackend.funskate.service;
 
-import com.example.funskatebackend.funskate.dto.group.GroupResponse;
+import com.example.funskatebackend.funskate.dto.skategroup.SkateGroupResponse;
 import com.example.funskatebackend.funskate.entity.SkateGroup;
 import com.example.funskatebackend.funskate.repository.SkateGroupRepository;
 import org.springframework.stereotype.Service;
@@ -16,10 +16,10 @@ public class GroupService {
         this.groupRepository = groupRepository;
     }
 
-    public List<GroupResponse> getGroups(){
+    public List<SkateGroupResponse> getGroups(){
         List<SkateGroup> skateGroups = groupRepository.findAll();
 
-        return skateGroups.stream().map(GroupResponse::new).toList();
+        return skateGroups.stream().map(SkateGroupResponse::new).toList();
 
     }
 }
