@@ -14,11 +14,11 @@ import java.util.List;
 
 @Service
 public class ClubService {
-    ClubRepository clubRepository;
+  ClubRepository clubRepository;
 
-    public ClubService(ClubRepository clubRepository) {
-        this.clubRepository = clubRepository;
-    }
+  public ClubService(ClubRepository clubRepository) {
+    this.clubRepository = clubRepository;
+  }
 /*
     public ClubResponse addClub(ClubRequest clubRequest, Location location){
         Club newClub = ClubRequest.getClubEntity(clubRequest, location);
@@ -28,15 +28,13 @@ public class ClubService {
 
  */
 
-    public List<ClubResponse> getClubs(){
-        List<Club> clubs = clubRepository.findAll();
-         return clubs.stream().map(ClubResponse::new).toList();
-    }
+  public List<ClubResponse> getClubs(boolean withAthletes) {
+    List<Club> clubs = clubRepository.findAll();
+    return clubs.stream().map(club -> new ClubResponse(club, withAthletes)).toList();
+  }
 
-    public ClubResponse getClub(int id){
-        Club club = clubRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Club not found"));
-        return new ClubResponse(club);
-    }
-
-
+  public ClubResponse getClubById(int id, boolean withAthletes) {
+    Club club = clubRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Club not found"));
+    return new ClubResponse(club, withAthletes);
+  }
 }

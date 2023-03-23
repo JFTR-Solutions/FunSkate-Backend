@@ -1,5 +1,7 @@
 package com.example.funskatebackend.funskate.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "competition")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Competition {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,6 +37,7 @@ public class Competition {
   private Location location;
 
   @OneToMany(mappedBy = "competition", cascade = CascadeType.ALL)
+  @JsonBackReference
   private List<EventParticipant> eventParticipants;
 
   public Competition(LocalDate startDate, LocalDate endDate, LocalDate deadline, CompetitionType competitionType, Location location) {

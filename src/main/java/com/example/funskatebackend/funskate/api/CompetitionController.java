@@ -3,6 +3,7 @@ package com.example.funskatebackend.funskate.api;
 import com.example.funskatebackend.funskate.dto.competition.CompetitionRequest;
 import com.example.funskatebackend.funskate.dto.competition.CompetitionResponse;
 import com.example.funskatebackend.funskate.service.CompetitionService;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +23,12 @@ public class CompetitionController {
   List<CompetitionResponse> getCompetitions() {
     return competitionService.getAllCompetitions();
   }
-  @GetMapping("/{comp_type}")
+
+  @GetMapping("/{id}")
+  public CompetitionResponse getCompetitionById(@PathVariable int id) {
+    return competitionService.getCompetitionById(id);
+  }
+  @GetMapping("/type/{comp_type}")
   List<CompetitionResponse> getCompetitionsByCompType(@PathVariable String comp_type) {
     return competitionService.getCompetitionsByCompType(comp_type);
   }

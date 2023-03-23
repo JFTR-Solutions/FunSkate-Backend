@@ -14,7 +14,6 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 public class CompetitionRequest {
-  private int id;
   private LocalDate startDate;
   private LocalDate endDate;
   private LocalDate deadline;
@@ -26,7 +25,6 @@ public class CompetitionRequest {
   }
 
   public CompetitionRequest(Competition c) {
-    this.id = c.getId();
     this.startDate = c.getStartDate();
     this.endDate = c.getEndDate();
     this.deadline = c.getDeadline();

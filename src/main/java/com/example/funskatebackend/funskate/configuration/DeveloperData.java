@@ -38,7 +38,10 @@ public class DeveloperData implements ApplicationRunner {
     createAthletes(clubRepository.findAll());
     createCompetitions();
     createElementGroups();
+    attendAthletesToCompetitions(athleteRepository.findAll(), competitionRepository.findAll());
+    sortEventParticipantsIntoGroups(skateGroupRepository.findAll(), eventParticipantRepository.findAll());
   }
+
 
   public void createLocations() {
     Location loc1 = new Location("Røllikevej 1", "Kastrup", "2770", "Kastrup Skøjtehal");
@@ -121,15 +124,9 @@ public class DeveloperData implements ApplicationRunner {
 
 
   public void createAthletes(List<Club> clubs) {
-    Athlete athlete1 = new Athlete("John", "Doe", LocalDate.of(1995, 5, 12), 1500, 1234);
-    Athlete athlete2 = new Athlete("Jane", "Smith", LocalDate.of(1998, 9, 3), 1800, 5678);
-    Athlete athlete3 = new Athlete("Bob", "Johnson", LocalDate.of(1990, 2, 22), 1200, 9012);
-
-
-    athlete1.setClub(clubs.get(0));
-    athlete2.setClub(clubs.get(0));
-    athlete3.setClub(clubs.get(1));
-
+    Athlete athlete1 = new Athlete("John", "Doe", LocalDate.of(1995, 5, 12), 1500, 1234, clubs.get(0));
+    Athlete athlete2 = new Athlete("Jane", "Smith", LocalDate.of(1998, 9, 3), 1800, 5678, clubs.get(0));
+    Athlete athlete3 = new Athlete("Bob", "Johnson", LocalDate.of(1990, 2, 22), 1200, 9012, clubs.get(1));
 
     athleteRepository.save(athlete1);
     athleteRepository.save(athlete2);
@@ -216,4 +213,28 @@ public class DeveloperData implements ApplicationRunner {
     skateGroupRepository.save(group10);
 
   }
+
+  public void attendAthletesToCompetitions(List<Athlete> athletes, List<Competition> competitions) {
+    EventParticipant eventParticipant1 = new EventParticipant(athletes.get(0), competitions.get(0));
+    EventParticipant eventParticipant2 = new EventParticipant(athletes.get(0), competitions.get(0));
+    EventParticipant eventParticipant3 = new EventParticipant(athletes.get(1), competitions.get(0));
+    EventParticipant eventParticipant4 = new EventParticipant(athletes.get(1), competitions.get(0));
+    EventParticipant eventParticipant5 = new EventParticipant(athletes.get(2), competitions.get(0));
+    EventParticipant eventParticipant6 = new EventParticipant(athletes.get(2), competitions.get(0));
+
+    eventParticipantRepository.save(eventParticipant1);
+    eventParticipantRepository.save(eventParticipant2);
+    eventParticipantRepository.save(eventParticipant3);
+    eventParticipantRepository.save(eventParticipant4);
+    eventParticipantRepository.save(eventParticipant5);
+    eventParticipantRepository.save(eventParticipant6);
+  }
+
+  public void sortEventParticipantsIntoGroups(List<SkateGroup> skateGroups, List<EventParticipant> eventParticipants) {
+    EventParticipantGroup eventParticipantGroup1 = new EventParticipantGroup(eventParticipants.get(1), skateGroups.get(1));
+    EventParticipantGroup eventParticipantGroup2 = new EventParticipantGroup(eventParticipants.get(0), skateGroups.get(3));
+    eventParticipantGroupRepository.save(eventParticipantGroup1);
+    eventParticipantGroupRepository.save(eventParticipantGroup2);
+  }
+
 }

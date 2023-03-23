@@ -1,29 +1,34 @@
 package com.example.funskatebackend.funskate.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Table(name = "event_participant_groups")
 @Getter
 @Setter
 @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class EventParticipantGroup {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "event_participant_id")
-    private EventParticipant eventParticipant;
+  @EmbeddedId
+  private MyKeyEventParticipantGroup id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "group_id")
-    private SkateGroup skateGroup;
+  @MapsId("eventParticipantId")
+  @ManyToOne
+  @JoinColumn(name = "event_participant_id")
+  private EventParticipant eventParticipant;
 
-    public EventParticipantGroup(EventParticipant eventParticipant, SkateGroup skateGroup) {
-        this.eventParticipant = eventParticipant;
-        this.skateGroup = skateGroup;
-    }
+  @ManyToOne
+  @JoinColumn(name = "skate_group_id", insertable = false, updatable = false)
+  private SkateGroup skateGroup;
+
+  public EventParticipantGroup(EventParticipant eventParticipant, SkateGroup skateGroup) {
+    this.id = new MyKeyEventParticipantGroup(eventParticipant.getId(), skateGroup.getId());
+    this.eventParticipant = eventParticipant;
+    this.skateGroup = skateGroup;
+  }
 }

@@ -1,5 +1,6 @@
 package com.example.funskatebackend.funskate.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Table(name = "skate_group")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class SkateGroup {
 
     @Id
