@@ -1,7 +1,6 @@
 package com.example.funskatebackend.funskate.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,7 +27,7 @@ public class Club {
   private String logo;
 
   @OneToMany(mappedBy = "club", cascade = CascadeType.ALL)
-  @JsonBackReference
+  @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
   private List<Athlete> athletes;
 
   @ManyToOne(fetch = FetchType.LAZY)
