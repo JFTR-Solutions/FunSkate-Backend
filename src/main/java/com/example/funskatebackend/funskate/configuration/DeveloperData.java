@@ -46,7 +46,6 @@ public class DeveloperData implements ApplicationRunner {
   public void createLocations() {
     Location loc1 = new Location("Røllikevej 1", "Kastrup", "2770", "Kastrup Skøjtehal");
     Location loc2 = new Location("Rødovre Parkvej 425", "Rødovre", "2610", "Rødovre Arena");
-    /*
     Location loc3 = new Location("Willy Brandts Vej 31", "Aalborg", "9220", "Gigantium");
     Location loc4 = new Location("Gøteborg Allé 3", "Aarhus", "8200", "Aarhus Skøjtehal");
     Location loc5 = new Location("Gl Vardevej 82", "Esbjerg", "6700", "Granly Hockey Arena");
@@ -63,10 +62,10 @@ public class DeveloperData implements ApplicationRunner {
     Location loc16 = new Location("Stadion Parken 7", "Vojens", "6500", "Frøs Arena og Skøjtehal");
     Location loc17 = new Location("Hannemanns Alle 14A+B", "København S", "2300", "Ørestad Skøjtehal");
 
-     */
+
 
     locationRepository.save(loc1);
-    locationRepository.save(loc2);/*
+    locationRepository.save(loc2);
     locationRepository.save(loc3);
     locationRepository.save(loc4);
     locationRepository.save(loc5);
@@ -83,11 +82,11 @@ public class DeveloperData implements ApplicationRunner {
     locationRepository.save(loc16);
     locationRepository.save(loc17);
 
-     */
+
   }
 
   public void createAllClubs(List<Location> locations) {
-/*
+
     Club club1 = new Club("Aalborg Skøjteløberforening", "", locations.get(2), CompetitionType.WEST);
     Club club2 = new Club("Aarhus Skøjteklub", "", locations.get(3), CompetitionType.WEST);
     Club club3 = new Club("Esbjerg Skøjteklub", "", locations.get(4), CompetitionType.WEST);
@@ -98,21 +97,17 @@ public class DeveloperData implements ApplicationRunner {
     Club club8 = new Club("Herning Skøjteløber Forening", "", locations.get(9), CompetitionType.WEST);
     Club club9 = new Club("Hvidovre Skøjte Klub", "", locations.get(10), CompetitionType.EAST);
     Club club10 = new Club("Hørsholm Kunstskøjteløber Forening", "", locations.get(11), CompetitionType.EAST);
-    Club club11 = new Club("Odense Skøjteklub", "", locations.get(12), CompetitionType.WEST);*/
+    Club club11 = new Club("Odense Skøjteklub", "", locations.get(12), CompetitionType.WEST);
     Club club12 = new Club("Rødovre Skøjte- og Ishockey Klub", "", locations.get(1), CompetitionType.EAST);
-    /*
     Club club13 = new Club("Silkeborg Skøjteløberforening", "", locations.get(13), CompetitionType.WEST);
     Club club14 = new Club("Skøjteklub København", "", locations.get(14), CompetitionType.EAST);
     Club club15 = new Club("Skøjte og Sport Forening Nord", "", locations.get(5), CompetitionType.WEST);
-    */
     Club club16 = new Club("Tårnby Skøjteklub", "", locations.get(0), CompetitionType.EAST);
-
-    /*
     Club club17 = new Club("Vojens Skøjteklub", "", locations.get(15), CompetitionType.WEST);
     Club club18 = new Club("Ørestad Skøjteklub", "", locations.get(16), CompetitionType.EAST);
 
-    */
-/*
+
+
     clubRepository.save(club1);
     clubRepository.save(club2);
     clubRepository.save(club3);
@@ -123,16 +118,16 @@ public class DeveloperData implements ApplicationRunner {
     clubRepository.save(club8);
     clubRepository.save(club9);
     clubRepository.save(club10);
-    clubRepository.save(club11);*/
-    clubRepository.save(club12);/*
+    clubRepository.save(club11);
+    clubRepository.save(club12);
     clubRepository.save(club13);
     clubRepository.save(club14);
-    clubRepository.save(club15);*/
-    clubRepository.save(club16);/*
+    clubRepository.save(club15);
+    clubRepository.save(club16);
     clubRepository.save(club17);
     clubRepository.save(club18);
 
-    */
+
   }
 
 
