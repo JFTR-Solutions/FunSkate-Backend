@@ -1,5 +1,6 @@
 package com.example.funskatebackend.funskate.dto.athlete;
 
+import com.example.funskatebackend.funskate.dto.club.ClubResponse;
 import com.example.funskatebackend.funskate.dto.eventparticipant.EventParticipantResponse;
 import com.example.funskatebackend.funskate.entity.Athlete;
 import com.example.funskatebackend.funskate.entity.Club;
@@ -23,7 +24,7 @@ public class AthleteResponse {
   LocalDate birthdate;
   int clubMark;
   int competitionNumber;
-  Club club;
+  ClubResponse clubResponse;
   List<EventParticipantResponse> eventParticipants;
 
   public AthleteResponse(Athlete a, boolean withClub, boolean withEvents) {
@@ -34,7 +35,7 @@ public class AthleteResponse {
     this.clubMark = a.getClubMark();
     this.competitionNumber = a.getCompetitionNumber();
     if (withClub) {
-      this.club = a.getClub();
+      this.clubResponse = new ClubResponse(a.getClub(), false);
     }
     if (withEvents) {
       this.eventParticipants = a.getEventParticipants().stream().map(eventParticipant -> new EventParticipantResponse(eventParticipant,false,true)).toList();
