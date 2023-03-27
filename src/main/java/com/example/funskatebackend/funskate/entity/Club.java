@@ -26,6 +26,9 @@ public class Club {
   @Column(name = "logo", nullable = false)
   private String logo;
 
+  @Column(name = "abbreviation", nullable = false, length = 5)
+  private String abbreviation;
+
   @OneToMany(mappedBy = "club", cascade = CascadeType.ALL)
   @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
   private List<Athlete> athletes;
@@ -44,9 +47,10 @@ public class Club {
     this.location = location;
   }
 
-  public Club(String name, String logo, Location location, CompetitionType eastWest) {
+  public Club(String name, String logo, String abbreviation, Location location, CompetitionType eastWest) {
     this.name = name;
     this.logo = logo;
+    this.abbreviation = abbreviation;
     this.location = location;
     this.eastWest = eastWest;
   }

@@ -13,19 +13,21 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ClubRequest {
 
-    private String name;
-    private String logo;
-    private Location location;
-    private CompetitionType eastWest;
+  private String name;
+  private String logo;
+  private String abbreviation;
+  private Location location;
+  private CompetitionType eastWest;
 
-    public static Club getClubEntity(ClubRequest c) {
-        return new Club(c.name, c.logo, c.location,c.eastWest);
-    }
+  public static Club getClubEntity(ClubRequest c) {
+    return new Club(c.name, c.logo, c.abbreviation, c.location, c.eastWest);
+  }
 
-    public ClubRequest(Club c) {
-        this.name = c.getName();
-        this.logo = c.getLogo();
-        this.location = c.getLocation();
-        this.eastWest = c.getEastWest();
-    }
+  public ClubRequest(Club c) {
+    this.name = c.getName();
+    this.logo = c.getLogo();
+    this.abbreviation = c.getAbbreviation();
+    this.location = c.getLocation();
+    this.eastWest = c.getEastWest();
+  }
 }
