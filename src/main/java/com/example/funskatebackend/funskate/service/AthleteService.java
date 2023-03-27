@@ -56,9 +56,7 @@ public class AthleteService {
     athlete.setLastName(athleteRequest.getLastName());
     athlete.setClubMark(athleteRequest.getClubMark());
     athlete.setCompetitionNumber(athleteRequest.getCompetitionNumber());
-    Club club = clubRepository.findById(athleteRequest.getClub().getId()).orElseThrow(()
-        -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Club not found"));
-    athlete.setClub(club);
+    athlete.setClub(athleteRequest.getClub());
     athleteRepository.save(athlete);
     return new AthleteResponse(athlete, false, false);
   }

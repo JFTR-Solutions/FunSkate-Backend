@@ -87,7 +87,7 @@ public class DeveloperData implements ApplicationRunner {
   public void createAllClubs(List<Location> locations) {
 
     Club club1 = new Club("Aalborg Skøjteløberforening", "", "ASF", locations.get(2), CompetitionType.WEST);
-    Club club2 = new Club("Aarhus Skøjteklub", "", "ASF", locations.get(3), CompetitionType.WEST);
+    Club club2 = new Club("Aarhus Skøjteklub", "", "ASK", locations.get(3), CompetitionType.WEST);
     Club club3 = new Club("Esbjerg Skøjteklub", "", "ESK", locations.get(4), CompetitionType.WEST);
     Club club4 = new Club("Frederikshavn Skøjteforening", "", "FSF", locations.get(5), CompetitionType.WEST);
     Club club5 = new Club("Gentofte Kunstskøjteløber Forening", "", "GKF", locations.get(6), CompetitionType.EAST);
