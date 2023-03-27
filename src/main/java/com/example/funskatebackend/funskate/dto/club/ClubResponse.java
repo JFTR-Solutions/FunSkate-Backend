@@ -22,6 +22,7 @@ public class ClubResponse {
   private int id;
   private String name;
   private String logo;
+  private String abbreviation;
   private List<AthleteResponse> athletes;
   private Location location;
   private CompetitionType eastWest;
@@ -30,6 +31,7 @@ public class ClubResponse {
   public ClubResponse(Club c, boolean withAthletes) {
     this.id = c.getId();
     this.name = c.getName();
+    this.abbreviation = c.getAbbreviation();
     this.logo = c.getLogo();
     this.location = c.getLocation();
     this.eastWest = c.getEastWest();

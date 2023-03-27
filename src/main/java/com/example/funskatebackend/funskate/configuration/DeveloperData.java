@@ -63,7 +63,6 @@ public class DeveloperData implements ApplicationRunner {
     Location loc17 = new Location("Hannemanns Alle 14A+B", "København S", "2300", "Ørestad Skøjtehal");
 
 
-
     locationRepository.save(loc1);
     locationRepository.save(loc2);
     locationRepository.save(loc3);
@@ -87,25 +86,24 @@ public class DeveloperData implements ApplicationRunner {
 
   public void createAllClubs(List<Location> locations) {
 
-    Club club1 = new Club("Aalborg Skøjteløberforening", "", locations.get(2), CompetitionType.WEST);
-    Club club2 = new Club("Aarhus Skøjteklub", "", locations.get(3), CompetitionType.WEST);
-    Club club3 = new Club("Esbjerg Skøjteklub", "", locations.get(4), CompetitionType.WEST);
-    Club club4 = new Club("Frederikshavn Skøjteforening", "", locations.get(5), CompetitionType.WEST);
-    Club club5 = new Club("Gentofte Kunstskøjteløber Forening", "", locations.get(6), CompetitionType.EAST);
-    Club club6 = new Club("Gladsaxe Skøjteløber-Forening", "", locations.get(7), CompetitionType.EAST);
-    Club club7 = new Club("Herlev Idrætsforenings Kunstskøjte Afdeling", "", locations.get(8), CompetitionType.EAST);
-    Club club8 = new Club("Herning Skøjteløber Forening", "", locations.get(9), CompetitionType.WEST);
-    Club club9 = new Club("Hvidovre Skøjte Klub", "", locations.get(10), CompetitionType.EAST);
-    Club club10 = new Club("Hørsholm Kunstskøjteløber Forening", "", locations.get(11), CompetitionType.EAST);
-    Club club11 = new Club("Odense Skøjteklub", "", locations.get(12), CompetitionType.WEST);
-    Club club12 = new Club("Rødovre Skøjte- og Ishockey Klub", "", locations.get(1), CompetitionType.EAST);
-    Club club13 = new Club("Silkeborg Skøjteløberforening", "", locations.get(13), CompetitionType.WEST);
-    Club club14 = new Club("Skøjteklub København", "", locations.get(14), CompetitionType.EAST);
-    Club club15 = new Club("Skøjte og Sport Forening Nord", "", locations.get(5), CompetitionType.WEST);
-    Club club16 = new Club("Tårnby Skøjteklub", "", locations.get(0), CompetitionType.EAST);
-    Club club17 = new Club("Vojens Skøjteklub", "", locations.get(15), CompetitionType.WEST);
-    Club club18 = new Club("Ørestad Skøjteklub", "", locations.get(16), CompetitionType.EAST);
-
+    Club club1 = new Club("Aalborg Skøjteløberforening", "", "ASF", locations.get(2), CompetitionType.WEST);
+    Club club2 = new Club("Aarhus Skøjteklub", "", "ASF", locations.get(3), CompetitionType.WEST);
+    Club club3 = new Club("Esbjerg Skøjteklub", "", "ESK", locations.get(4), CompetitionType.WEST);
+    Club club4 = new Club("Frederikshavn Skøjteforening", "", "FSF", locations.get(5), CompetitionType.WEST);
+    Club club5 = new Club("Gentofte Kunstskøjteløber Forening", "", "GKF", locations.get(6), CompetitionType.EAST);
+    Club club6 = new Club("Gladsaxe Skøjteløber-Forening", "", "GSF", locations.get(7), CompetitionType.EAST);
+    Club club7 = new Club("Herlev Idrætsforenings Kunstskøjte Afdeling", "", "HI-KU", locations.get(8), CompetitionType.EAST);
+    Club club8 = new Club("Herning Skøjteløber Forening", "", "HSF", locations.get(9), CompetitionType.WEST);
+    Club club9 = new Club("Hvidovre Skøjte Klub", "", "HSK", locations.get(10), CompetitionType.EAST);
+    Club club10 = new Club("Hørsholm Kunstskøjteløber Forening", "", "HKF", locations.get(11), CompetitionType.EAST);
+    Club club11 = new Club("Odense Skøjteklub", "", "OSK", locations.get(12), CompetitionType.WEST);
+    Club club12 = new Club("Rødovre Skøjte- og Ishockey Klub", "", "RSIK", locations.get(1), CompetitionType.EAST);
+    Club club13 = new Club("Silkeborg Skøjteløberforening", "", "SSF", locations.get(13), CompetitionType.WEST);
+    Club club14 = new Club("Skøjteklub København", "", "SKK", locations.get(14), CompetitionType.EAST);
+    Club club15 = new Club("Skøjte og Sport Forening Nord", "", "SOS", locations.get(5), CompetitionType.WEST);
+    Club club16 = new Club("Tårnby Skøjteklub", "", "TSK", locations.get(0), CompetitionType.EAST);
+    Club club17 = new Club("Vojens Skøjteklub", "", "VSK", locations.get(15), CompetitionType.WEST);
+    Club club18 = new Club("Ørestad Skøjteklub", "", "ØSK", locations.get(16), CompetitionType.EAST);
 
 
     clubRepository.save(club1);
@@ -243,9 +241,9 @@ public class DeveloperData implements ApplicationRunner {
   }
 
   public void sortEventParticipantsIntoGroups(List<SkateGroup> skateGroups, List<EventParticipant> eventParticipants) {
-    EventParticipantGroup eventParticipantGroup1 = new EventParticipantGroup(eventParticipants.get(0), skateGroups.get(5),skateGroups.get(1), GroupType.SOLO);
-    EventParticipantGroup eventParticipantGroup2 = new EventParticipantGroup(eventParticipants.get(1), skateGroups.get(3),null, GroupType.ELEMENT);
-    EventParticipantGroup eventParticipantGroup3 = new EventParticipantGroup(eventParticipants.get(2), skateGroups.get(7),skateGroups.get(6), GroupType.DANCE);
+    EventParticipantGroup eventParticipantGroup1 = new EventParticipantGroup(eventParticipants.get(0), skateGroups.get(5), skateGroups.get(1), GroupType.SOLO);
+    EventParticipantGroup eventParticipantGroup2 = new EventParticipantGroup(eventParticipants.get(1), skateGroups.get(3), null, GroupType.ELEMENT);
+    EventParticipantGroup eventParticipantGroup3 = new EventParticipantGroup(eventParticipants.get(2), skateGroups.get(7), skateGroups.get(6), GroupType.DANCE);
     eventParticipantGroupRepository.save(eventParticipantGroup1);
     eventParticipantGroupRepository.save(eventParticipantGroup2);
     eventParticipantGroupRepository.save(eventParticipantGroup3);
