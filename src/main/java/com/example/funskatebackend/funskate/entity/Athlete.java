@@ -9,12 +9,12 @@ import lombok.Setter;
 import java.time.LocalDate;
 import java.util.List;
 
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @Table(name = "athlete")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Entity
 public class Athlete {
 
     @Id
