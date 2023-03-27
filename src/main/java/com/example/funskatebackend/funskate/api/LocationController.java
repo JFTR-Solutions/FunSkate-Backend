@@ -4,6 +4,7 @@ import com.example.funskatebackend.funskate.dto.location.LocationRequest;
 import com.example.funskatebackend.funskate.dto.location.LocationResponse;
 import com.example.funskatebackend.funskate.entity.Location;
 import com.example.funskatebackend.funskate.service.LocationService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,16 +26,19 @@ public class LocationController {
     return locationService.getAllLocations();
   }
 
+  @PreAuthorize("hasAuthority('ADMIN')")
   @GetMapping("/{id}")
   public Optional<Location> getLocationById(@PathVariable int id) {
     return locationService.getLocationById(id);
   }
 
+  @PreAuthorize("hasAuthority('ADMIN')")
   @PostMapping
   LocationResponse addLocation(@RequestBody LocationRequest body) {
     return locationService.addLocation(body);
   }
 
+  @PreAuthorize("hasAuthority('ADMIN')")
   @DeleteMapping("/{id}")
   public void deleteLocationById(@PathVariable int id) {
     locationService.deleteLocationById(id);

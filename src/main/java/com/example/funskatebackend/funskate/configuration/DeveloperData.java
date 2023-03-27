@@ -3,6 +3,9 @@ package com.example.funskatebackend.funskate.configuration;
 import com.example.funskatebackend.funskate.entity.*;
 import com.example.funskatebackend.funskate.repository.*;
 import com.example.funskatebackend.funskate.service.EventParticipantService;
+import com.example.funskatebackend.security.entity.Role;
+import com.example.funskatebackend.security.entity.UserWithRoles;
+import com.example.funskatebackend.security.repository.UserWithRolesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -30,6 +33,8 @@ public class DeveloperData implements ApplicationRunner {
   SkateGroupRepository skateGroupRepository;
   @Autowired
   EventParticipantService eventParticipantService;
+  @Autowired
+  UserWithRolesRepository userWithRolesRepository;
 
   @Override
   public void run(ApplicationArguments args) throws Exception {
@@ -40,7 +45,16 @@ public class DeveloperData implements ApplicationRunner {
     createElementGroups();
     attendAthletesToCompetitions(athleteRepository.findAll(), competitionRepository.findAll());
     sortEventParticipantsIntoGroups(skateGroupRepository.findAll(), eventParticipantRepository.findAll());
+    createUser();
   }
+  private void createUser() {
+    String password = System.getenv("PASSWORD");
+    UserWithRoles user1 = new UserWithRoles("admin", password, "admin@funskate.dk");
+    user1.addRole(Role.ADMIN);
+    userWithRolesRepository.save(user1);
+
+  }
+
 
 
   public void createLocations() {
