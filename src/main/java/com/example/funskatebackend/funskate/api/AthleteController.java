@@ -14,8 +14,6 @@ import java.util.List;
 @RequestMapping("athletes")
 public class AthleteController {
 
-
-    //Todo delete this comment
     AthleteService athleteService;
     ClubService clubService;
 
