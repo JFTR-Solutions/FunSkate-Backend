@@ -144,9 +144,9 @@ public class DeveloperData implements ApplicationRunner {
 
 
   public void createAthletes(List<Club> clubs) {
-    Athlete athlete1 = new Athlete("John", "Doe", LocalDate.of(1995, 5, 12), 1500, 1234, clubs.get(0));
-    Athlete athlete2 = new Athlete("Jane", "Smith", LocalDate.of(1998, 9, 3), 1800, 5678, clubs.get(0));
-    Athlete athlete3 = new Athlete("Bob", "Johnson", LocalDate.of(1990, 2, 22), 1200, 9012, clubs.get(1));
+    Athlete athlete1 = new Athlete("John", "Doe", LocalDate.of(1995, 5, 12), 3, 1234, clubs.get(0));
+    Athlete athlete2 = new Athlete("Jane", "Smith", LocalDate.of(1998, 9, 3), 7, 5678, clubs.get(0));
+    Athlete athlete3 = new Athlete("Bob", "Johnson", LocalDate.of(1990, 2, 22), 4, 9012, clubs.get(1));
 
     athleteRepository.save(athlete1);
     athleteRepository.save(athlete2);

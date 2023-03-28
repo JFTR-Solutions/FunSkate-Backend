@@ -12,6 +12,8 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
+import static com.example.funskatebackend.funskate.dto.athlete.AthleteRequest.getAthleteEntity;
+
 @Service
 public class AthleteService {
 
@@ -30,7 +32,7 @@ public class AthleteService {
         }*/
 
 
-    Athlete newAthlete = athleteRequest.getAthleteEntity(athleteRequest);
+    Athlete newAthlete = getAthleteEntity(athleteRequest);
     newAthlete = athleteRepository.save(newAthlete);
     return new AthleteResponse(newAthlete, false, false);
   }

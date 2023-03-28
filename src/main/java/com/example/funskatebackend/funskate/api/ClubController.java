@@ -22,19 +22,19 @@ public class ClubController {
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping
     public List<ClubResponse> getClubs(){
-        return clubService.getClubs(false);
+        return clubService.getClubs(false, true);
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/{id}")
     public ClubResponse getClubById(@PathVariable int id) {
-        return clubService.getClubById(id, false);
+        return clubService.getClubById(id, false, true);
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/{id}/athletes")
     public List<AthleteResponse> getAthletesFromClub(@PathVariable int id) {
-        ClubResponse club = clubService.getClubById(id, true);
+        ClubResponse club = clubService.getClubById(id, true, false);
 
         return club.getAthletes();
     }

@@ -35,7 +35,7 @@ public class AthleteResponse {
     this.clubMark = a.getClubMark();
     this.competitionNumber = a.getCompetitionNumber();
     if (withClub) {
-      this.clubResponse = new ClubResponse(a.getClub(), false);
+      this.clubResponse = new ClubResponse(a.getClub(), false, false);
     }
     if (withEvents) {
       this.eventParticipants = a.getEventParticipants().stream().map(eventParticipant -> new EventParticipantResponse(eventParticipant,false,true)).toList();

@@ -28,13 +28,13 @@ public class ClubService {
 
  */
 
-  public List<ClubResponse> getClubs(boolean withAthletes) {
+  public List<ClubResponse> getClubs(boolean withAthletes, boolean withLocation) {
     List<Club> clubs = clubRepository.findAll();
-    return clubs.stream().map(club -> new ClubResponse(club, withAthletes)).toList();
+    return clubs.stream().map(club -> new ClubResponse(club, withAthletes, withLocation)).toList();
   }
 
-  public ClubResponse getClubById(int id, boolean withAthletes) {
+  public ClubResponse getClubById(int id, boolean withAthletes, boolean withLocation) {
     Club club = clubRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Club not found"));
-    return new ClubResponse(club, withAthletes);
+    return new ClubResponse(club, withAthletes, withLocation);
   }
 }

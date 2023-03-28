@@ -28,15 +28,17 @@ public class ClubResponse {
   private CompetitionType eastWest;
 
 
-  public ClubResponse(Club c, boolean withAthletes) {
+  public ClubResponse(Club c, boolean withAthletes, boolean withLocation) {
     this.id = c.getId();
     this.name = c.getName();
     this.abbreviation = c.getAbbreviation();
     this.logo = c.getLogo();
-    this.location = c.getLocation();
     this.eastWest = c.getEastWest();
+    if (withLocation) {
+      this.location = c.getLocation();
+    }
     if (withAthletes) {
-      this.athletes = c.getAthletes().stream().map(athlete -> new AthleteResponse(athlete, false,true)).toList();
+      this.athletes = c.getAthletes().stream().map(athlete -> new AthleteResponse(athlete, false, true)).toList();
     }
   }
 }
