@@ -20,31 +20,31 @@ public class CompetitionController {
     this.competitionService = competitionService;
   }
 
-  @PreAuthorize("hasAuthority('ADMIN')")
+  @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
   @GetMapping
   List<CompetitionResponse> getCompetitions() {
     return competitionService.getAllCompetitions();
   }
 
-  @PreAuthorize("hasAuthority('ADMIN')")
+  @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
   @GetMapping("/{id}")
   public CompetitionResponse getCompetitionById(@PathVariable int id) {
     return competitionService.getCompetitionById(id);
   }
 
-  @PreAuthorize("hasAuthority('ADMIN')")
+  @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
   @GetMapping("/type/{comp_type}")
   List<CompetitionResponse> getCompetitionsByCompType(@PathVariable String comp_type) {
     return competitionService.getCompetitionsByCompType(comp_type);
   }
 
-  @PreAuthorize("hasAuthority('ADMIN')")
+  @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
   @PostMapping
   CompetitionResponse addCompetition(@RequestBody CompetitionRequest body) {
     return competitionService.addCompetition(body);
   }
 
-  @PreAuthorize("hasAuthority('ADMIN')")
+  @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
   @DeleteMapping("/{id}")
   public void deleteCompetitionById(@PathVariable int id) {
     competitionService.deleteCompetitionById(id);

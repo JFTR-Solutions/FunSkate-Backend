@@ -8,6 +8,7 @@ import com.example.funskatebackend.funskate.entity.EventParticipant;
 import com.example.funskatebackend.funskate.service.EventParticipantService;
 import jakarta.transaction.Transactional;
 import lombok.Getter;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,16 +26,19 @@ public class EventParticipantController {
     this.eventParticipantService = eventParticipantService;
   }
 
+  @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
   @GetMapping("/{id}")
   public List<EventParticipantResponse> getAllParticipantsForEventByEventId(@PathVariable int id) {
     return eventParticipantService.getAllParticipantsForEventByEventId(id);
   }
 
+  @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
   @PostMapping
   EventParticipantResponse addParticipantToEvent(@RequestBody EventParticipantRequest eventParticipantRequest) {
     return eventParticipantService.addEventParticipant(eventParticipantRequest);
   }
 
+  @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
   @DeleteMapping("/delete/{compId}-{partId}")
   @Transactional
   public void deleteParticipant(@PathVariable int compId,@PathVariable int partId) {
