@@ -21,7 +21,7 @@ public class GroupController {
         this.groupService = groupService;
     }
 
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
     @GetMapping
     public List<SkateGroupResponse> getGroups() {
         return groupService.getGroups();

@@ -19,19 +19,19 @@ public class ClubController {
         this.clubService = clubService;
     }
 
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
     @GetMapping
     public List<ClubResponse> getClubs(){
         return clubService.getClubs(false, true);
     }
 
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
     @GetMapping("/{id}")
     public ClubResponse getClubById(@PathVariable int id) {
         return clubService.getClubById(id, false, true);
     }
 
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
     @GetMapping("/{id}/athletes")
     public List<AthleteResponse> getAthletesFromClub(@PathVariable int id) {
         ClubResponse club = clubService.getClubById(id, true, false);

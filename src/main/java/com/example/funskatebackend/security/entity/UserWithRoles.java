@@ -2,6 +2,7 @@ package com.example.funskatebackend.security.entity;
 
 
 
+import com.example.funskatebackend.funskate.entity.Club;
 import com.example.funskatebackend.security.dto.UserWithRolesRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -59,6 +60,10 @@ public class UserWithRoles implements UserDetails {
     @CollectionTable(name = "security_role")
     List<Role> roles = new ArrayList<>();
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "club_id")
+    private Club club;
+
     public UserWithRoles() {}
 
 
@@ -73,6 +78,14 @@ public class UserWithRoles implements UserDetails {
         this.username = user;
         setPassword(password);
         this.email = email;
+    }
+
+    public UserWithRoles(String user, String password, String email, Club club){
+        this.username = user;
+        setPassword(password);
+        this.email = email;
+        this.club = club;
+        roles.add(Role.USER);
     }
 
     public void setPassword(String pw){

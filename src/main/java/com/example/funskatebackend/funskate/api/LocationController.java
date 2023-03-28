@@ -21,18 +21,19 @@ public class LocationController {
     this.locationService = locationService;
   }
 
+  @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
   @GetMapping
   List<LocationResponse> getLocations() {
     return locationService.getAllLocations();
   }
 
-  @PreAuthorize("hasAuthority('ADMIN')")
+  @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
   @GetMapping("/{id}")
   public Optional<Location> getLocationById(@PathVariable int id) {
     return locationService.getLocationById(id);
   }
 
-  @PreAuthorize("hasAuthority('ADMIN')")
+  @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
   @PostMapping
   LocationResponse addLocation(@RequestBody LocationRequest body) {
     return locationService.addLocation(body);
