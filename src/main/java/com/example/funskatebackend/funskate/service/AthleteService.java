@@ -35,11 +35,6 @@ public class AthleteService {
 
   public AthleteResponse addAthlete(AthleteRequest athleteRequest) {
 
-    //TODO Add check if athlete exists
-   /*     if (athleteRepository.existsById(athleteRequest.getFirstName())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Athlete with this ID already exist");
-        }*/
-
 
     Athlete newAthlete = getAthleteEntity(athleteRequest);
     newAthlete = athleteRepository.save(newAthlete);
