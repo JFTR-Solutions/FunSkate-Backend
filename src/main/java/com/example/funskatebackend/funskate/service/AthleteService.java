@@ -25,7 +25,7 @@ public class AthleteService {
 
   AthleteRepository athleteRepository;
   ClubRepository clubRepository;
-  private final UserWithRolesRepository userWithRolesRepository;
+  UserWithRolesRepository userWithRolesRepository;
 
   public AthleteService(AthleteRepository athleteRepository,
                         UserWithRolesRepository userWithRolesRepository) {

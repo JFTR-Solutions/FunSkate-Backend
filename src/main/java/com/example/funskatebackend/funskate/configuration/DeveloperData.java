@@ -195,8 +195,16 @@ public class DeveloperData implements ApplicationRunner {
         Competition competition1 = new Competition(LocalDate.of(2023, 7, 1),
                 LocalDate.of(2023, 7, 10), LocalDate.of(2023, 6, 15),
                 CompetitionType.FINALS, locationRepository.getReferenceById(1));
+        Competition competition2 = new Competition(LocalDate.of(2023, 7, 1),
+                LocalDate.of(2023, 7, 10), LocalDate.of(2023, 6, 15),
+                CompetitionType.WEST, locationRepository.getReferenceById(1));
+        Competition competition3 = new Competition(LocalDate.of(2023, 7, 1),
+                LocalDate.of(2023, 7, 10), LocalDate.of(2023, 6, 15),
+                CompetitionType.EAST, locationRepository.getReferenceById(1));
 
         competitionRepository.save(competition1);
+        competitionRepository.save(competition2);
+        competitionRepository.save(competition3);
     }
 
     public void createElementGroups() {

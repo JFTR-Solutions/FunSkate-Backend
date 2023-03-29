@@ -38,7 +38,7 @@ public class CompetitionController {
     return competitionService.getCompetitionsByCompType(comp_type);
   }
 
-  @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
+  @PreAuthorize("hasAuthority('ADMIN')")
   @PostMapping
   CompetitionResponse addCompetition(@RequestBody CompetitionRequest body) {
     return competitionService.addCompetition(body);
