@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'funskate'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CA0071A520344987A5E897E8F28CDF75 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AB0FE5B8533345CD81EF77EE9CD30981 }}
           package: '*.jar'
