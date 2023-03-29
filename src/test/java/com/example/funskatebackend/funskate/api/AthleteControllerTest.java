@@ -34,4 +34,23 @@ class AthleteControllerTest {
 
         assertEquals(2, athleteRepository.findAll().size());
     }
+
+    @Test
+    void updateAthlete(){
+
+        Athlete athleteToUpdate = athleteRepository.findAll().get(0);
+        athleteToUpdate.setFirstName("Johnathan");
+        athleteRepository.save(athleteToUpdate);
+
+        assertEquals("Johnathan", athleteRepository.findAll().get(0).getFirstName());
+
+    }
+
+    @Test
+    void deleteAthlete() {
+
+        Athlete athleteToDelete = athleteRepository.findAll().get(0);
+        athleteRepository.delete(athleteToDelete);
+
+    }
 }
