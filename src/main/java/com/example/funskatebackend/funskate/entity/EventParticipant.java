@@ -14,6 +14,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class EventParticipant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,17 +22,23 @@ public class EventParticipant {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "athlete_id")
-    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     private Athlete athlete;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "competition_id")
-    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     private Competition competition;
+
+    @OneToOne(mappedBy = "eventParticipant", cascade = CascadeType.ALL)
+    private EventParticipantGroup eventParticipantGroup;
 
     public EventParticipant(Athlete athlete, Competition competition) {
         this.athlete = athlete;
         this.competition = competition;
     }
 
+    public EventParticipant(Long id, Athlete athlete, Competition competition) {
+        this.id = id;
+        this.athlete = athlete;
+        this.competition = competition;
+    }
 }

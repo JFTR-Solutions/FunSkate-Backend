@@ -1,5 +1,6 @@
 package com.example.funskatebackend.funskate.dto.eventparticipantgroup;
 
+import com.example.funskatebackend.funskate.dto.club.ClubResponse;
 import com.example.funskatebackend.funskate.entity.EventParticipant;
 import com.example.funskatebackend.funskate.entity.EventParticipantGroup;
 import com.example.funskatebackend.funskate.entity.GroupType;
@@ -12,16 +13,17 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class EventParticipantGroupResponse {
-
   private int id;
   private EventParticipant eventParticipant;
   private SkateGroup freeSkateGroup;
   private SkateGroup elementSkateGroup;
   private GroupType groupType;
 
-  public EventParticipantGroupResponse(EventParticipantGroup g) {
+  public EventParticipantGroupResponse(EventParticipantGroup g, boolean withEventParticipant) {
     this.id = g.getId();
-    this.eventParticipant = g.getEventParticipant();
+    if (withEventParticipant) {
+      this.eventParticipant = g.getEventParticipant();
+    }
     this.freeSkateGroup = g.getFreeSkateGroup();
     this.elementSkateGroup = g.getElementSkateGroup();
     this.groupType = g.getGroupType();

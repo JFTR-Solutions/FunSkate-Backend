@@ -18,7 +18,7 @@ public class EventParticipantGroup {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
-  @ManyToOne
+  @OneToOne
   @JoinColumn(name = "event_participant_id")
   private EventParticipant eventParticipant;
 
@@ -40,4 +40,5 @@ public class EventParticipantGroup {
     this.freeSkateGroup = freeSkateGroup;
     this.groupType = groupType;
   }
+
 }

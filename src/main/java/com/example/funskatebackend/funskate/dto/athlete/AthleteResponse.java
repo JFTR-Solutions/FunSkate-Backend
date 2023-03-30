@@ -38,7 +38,7 @@ public class AthleteResponse {
       this.clubResponse = new ClubResponse(a.getClub(), false, false);
     }
     if (withEvents) {
-      this.eventParticipants = a.getEventParticipants().stream().map(eventParticipant -> new EventParticipantResponse(eventParticipant,false,true)).toList();
+      this.eventParticipants = a.getEventParticipants().stream().map(eventParticipant -> new EventParticipantResponse(eventParticipant,false,true, true)).toList();
     }
   }
 }

@@ -19,6 +19,9 @@ public class EventParticipantGroupRequest {
   private SkateGroup freeSkateGroup;
   private GroupType groupType;
 
+  public static  EventParticipantGroup getEventParticipantGroupEntity(EventParticipantGroupRequest e) {
+    return new EventParticipantGroup(e.eventParticipant, e.elementSkateGroup,e.freeSkateGroup,e.groupType);
+  }
   public EventParticipantGroupRequest(EventParticipantGroup g) {
     this.eventParticipant = g.getEventParticipant();
     this.elementSkateGroup = g.getElementSkateGroup();
