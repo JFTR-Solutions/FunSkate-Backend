@@ -35,7 +35,7 @@ public class CompetitionResponse {
     this.competitionType = c.getCompetitionType();
     this.location = c.getLocation();
     if (withParticipants) {
-      this.eventParticipants = c.getEventParticipants().stream().map(eventParticipant -> new EventParticipantResponse(eventParticipant,true, false)).toList();
+      this.eventParticipants = c.getEventParticipants().stream().map(eventParticipant -> new EventParticipantResponse(eventParticipant,true, false,true)).toList();
     }
   }
 }

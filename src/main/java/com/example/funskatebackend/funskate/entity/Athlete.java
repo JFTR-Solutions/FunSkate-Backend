@@ -53,4 +53,14 @@ public class Athlete {
         this.competitionNumber = competitionNumber;
         this.club = club;
     }
+
+    public Athlete(int id, String firstName, String lastName, LocalDate birthdate, int clubMark, int competitionNumber, Club club) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthdate = birthdate;
+        this.clubMark = clubMark;
+        this.competitionNumber = competitionNumber;
+        this.club = club;
+    }
 }
